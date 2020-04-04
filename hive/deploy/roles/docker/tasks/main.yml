@@ -1,0 +1,19 @@
+---
+# tasks file for docker
+
+- name: Install yum utils
+  yum:
+    name: yum-utils
+    state: latest
+
+- name: Install docker
+  command: amazon-linux-extras install docker -y
+  args:
+    warn: no
+
+- name: Start Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  become: yes

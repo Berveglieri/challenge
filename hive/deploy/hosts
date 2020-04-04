@@ -1,0 +1,2 @@
+[app]
+appserver ansible_host=3.120.15.211

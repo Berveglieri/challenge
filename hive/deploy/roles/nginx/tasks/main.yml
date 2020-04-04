@@ -1,0 +1,28 @@
+---
+# tasks file for nginx
+
+- name: Install nginx
+  command: amazon-linux-extras install nginx1.12 -y
+  args:
+    warn: no
+
+- name: Upload nginx.conf file
+  template:
+    src: files/nginx.conf
+    dest: /etc/nginx/nginx.conf
+
+- name: Upload certificate file
+  copy:
+    src: files/certificate.pem
+    dest: /etc/nginx/ssl
+
+- name: Upload certificate key
+  copy:
+    src: files/certificate.key
+    dest: /etc/nginx/ssl
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes

@@ -1,0 +1,5 @@
+---
+# tasks file for deploy
+
+- name: Transfer and execute a script.
+  script: files/executor.sh
