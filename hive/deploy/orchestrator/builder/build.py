@@ -1,19 +1,28 @@
 import os
 import subprocess
+import shutil
+import git
+
 
 class Builder():
 
-    def docker_build(self, tag):
+
+    def docker_build(self, tag, repo_url, dest_folder, ecr_repo):
+
         try:
-            root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-            df_path = root+os.path.join('/hive')
-            dockerfile = os.path.isfile(os.path.join(df_path,'Dockerfile'))
+            git.Repo.clone_from(repo_url, dest_folder)
+        except Exception as e:
+            print(e)
+
+        try:
+            os.chdir(dest_folder+"/hive/hive")
+            dockerfile = os.path.isfile(os.path.join(os.getcwd(),'Dockerfile'))
             if dockerfile:
-                os.chdir(df_path)
-                call = subprocess.Popen(['docker', 'build', '-t', '017136389210.dkr.ecr.eu-central-1.amazonaws.com/web_app:'+tag, '.'],
+                call = subprocess.Popen(['docker', 'build', '-t', ecr_repo+":"+tag, '.'],
                                         stdout=subprocess.PIPE,
                                         stderr=subprocess.PIPE)
                 stdout, stderr = call.communicate()
                 print(stdout.decode('UTF-8'), stderr.decode('UTF-8'))
+                shutil.rmtree(dest_folder)
         except FileNotFoundError as e:
             print(e)
