@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 IMAGENAME="017136389210.dkr.ecr.eu-central-1.amazonaws.com/web_app:v1.0"
-NAME=$(docker ps | awk '{print $14}')
+NAME=$(docker ps | awk '{print $12}')
 
 if [ -z "$NAME" ]
 then
