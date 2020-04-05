@@ -3,7 +3,7 @@ Challenge
 
 URL: https://hiveapplogin.tk
 
-To register need to visit https://hiveapplogin.tk/register, after registered you have to visit https://hiveapplogin.tk/login
+To register you need to visit https://hiveapplogin.tk/register, after registered you have to visit https://hiveapplogin.tk/login
 
 the backups are being created every hour, to be able to decrypt you can use the cryptortool that was written in go, instructions of how to use it can be seen executing
 the tool without any parameters.
