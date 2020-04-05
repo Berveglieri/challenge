@@ -168,6 +168,9 @@ func ExecBackup(done chan string, host string, port string, user string, databas
 		}
 	}
 
+	os.RemoveAll(dir)
+	os.RemoveAll(dir+".tar.gz")
+
 	close(done)
 
 }

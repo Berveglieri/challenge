@@ -3,3 +3,19 @@
 
 - name: Transfer and execute a script.
   script: files/executor.sh
+
+- name: Transfer pgtool
+  copy:
+    src: files/pgtool
+    dest: /usr/bin
+
+- name: Make pgtool executable
+  command: chmod u+x /usr/bin/pgtool
+
+- name: Transfer cryptortool
+  copy:
+    src: files/cryptortool
+    dest: /usr/bin
+
+- name: Make pgtool executable
+  command: chmod u+x /usr/bin/cryptortool
