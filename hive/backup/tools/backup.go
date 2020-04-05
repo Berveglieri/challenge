@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"flag"
 	"fmt"
+	"github.com/challenge/hive/compressor"
 	"github.com/challenge/hive/cryptor"
 	_ "github.com/lib/pq"
 	"io/ioutil"
@@ -13,8 +14,6 @@ import (
 	"os/exec"
 	"strings"
 	"time"
-	"github.com/challenge/hive/compressor"
-	"github.com/challenge/hive/upload"
 )
 
 // EmptyValue function returns an error if not all args are passed
@@ -168,8 +167,6 @@ func ExecBackup(done chan string, host string, port string, user string, databas
 			panic(err)
 		}
 	}
-
-	upload.UploadS3(database,dir+".zzz")
 
 	close(done)
 
