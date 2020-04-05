@@ -10,6 +10,8 @@ the tool without any parameters.
 
 e .g **./cryptortool -operation decrypt -s arquivo.txt.zzz -p "password" -d "file.tar.gz"**
 
+extract the tar.gz file **tar -xzvf file.tar.gz** and in the folder check the Users.sql file to verify the users from the database.
+
 to deploy the application locally you first need to create the **local_network** network in docker.
 e .g **docker network create local_network**
 
