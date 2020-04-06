@@ -15,6 +15,8 @@ extract the tar.gz file **tar -xzvf file.tar.gz** and in the folder check the Us
 to deploy the application locally you first need to create the **local_network** network in docker.
 e .g **docker network create local_network**
 
+replace the content of .env file with the content of .env.local file
+
 **docker-compose up**
 
 
